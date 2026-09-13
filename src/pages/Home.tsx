@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { Link } from "wouter";
+import Link from "next/link";
+import { SiTelegram } from "react-icons/si";
 import { 
   ArrowRight, 
   ShieldCheck, 
@@ -17,11 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-
-import heroImg from "../assets/hero.png";
-import windowModernImg from "../assets/window-modern.png";
-import windowClassicImg from "../assets/window-classic.png";
-import craftsmanshipImg from "../assets/craftsmanship.png";
+import Image from "next/image";
 
 const FadeIn = ({ children, delay = 0, direction = "up", className = "" }: { children: React.ReactNode, delay?: number, direction?: "up" | "down" | "left" | "right", className?: string }) => {
   const ref = useRef(null);
@@ -55,25 +52,87 @@ export default function Home() {
   return (
     <div className="min-h-[100dvh] bg-background text-foreground overflow-hidden font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">
-              M
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+        <div className="container mx-auto px-4 lg:px-6 py-2 flex items-center justify-between gap-4 min-h-[72px]">
+
+          {/* Left — Logo + descriptor */}
+          <a
+            href="#top"
+            data-testid="link-logo"
+            className="flex flex-col leading-tight shrink-0 group"
+            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          >
+            <span className="text-2xl font-extrabold tracking-tight text-foreground group-hover:text-primary transition-colors">
+            Мáргари
+              {/* М<span className="relative">
+                А́
+              </span>РГАРИ  */}
+            </span>
+            <span className="text-[11px] text-muted-foreground font-normal leading-tight max-w-[220px]">
+              Ремонт и модернизация окон, остекление балконов
+            </span>
+          </a>
+
+          {/* Center — geo/hours + nav links */}
+          <div className="hidden md:flex flex-col items-center gap-1 flex-1">
+            <div className="text-[11px] text-muted-foreground tracking-wide">
+              📍 Батайск, Ростов, Аксай&nbsp;&nbsp;|&nbsp;&nbsp;Ежедневно с 08:00 до 20:00
             </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">MAGRAGI</span>
+            <div className="flex items-center gap-1">
+              {[
+                { label: "Профилактика окон", href: "#профилактика" },
+                { label: "Модернизация", href: "#модернизация" },
+                { label: "Москитные сетки", href: "#сетки" },
+                { label: "Балконы", href: "#балконы" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  data-testid={`nav-${item.href.slice(1)}`}
+                  className="px-3 py-1 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 rounded transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Products</a>
-            <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Process</a>
-            <a href="#craftsmanship" className="text-muted-foreground hover:text-foreground transition-colors">Quality</a>
-            <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Reviews</a>
+
+          {/* Right — phone + messengers */}
+          <div className="flex items-center gap-2 shrink-0">
+            <a
+              href="tel:+79081823188"
+              data-testid="link-phone"
+              className="hidden sm:block"
+            >
+              <Button className="rounded-sm bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-4 py-2 text-sm h-auto">
+                <Phone className="w-3.5 h-3.5 mr-1.5" />
+                8(908)182-31-88
+              </Button>
+            </a>
+
+            <a
+              href="https://t.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-telegram"
+              className="w-9 h-9 flex items-center justify-center rounded-sm bg-[#2AABEE] text-white hover:bg-[#1e96d4] transition-colors"
+              aria-label="Telegram"
+            >
+              <SiTelegram className="w-4 h-4" />
+            </a>
+
+            <a
+              href="https://vk.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-max"
+              className="w-9 h-9 flex items-center justify-center rounded-sm bg-[#2688EB] text-white hover:bg-[#1a70c9] transition-colors font-bold text-[11px] tracking-tight"
+              aria-label="MAX"
+            >
+              MAX
+            </a>
           </div>
-          <div className="flex items-center">
-            <Button className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6">
-              Get an Estimate
-            </Button>
-          </div>
+
         </div>
       </nav>
 
@@ -84,8 +143,9 @@ export default function Home() {
           style={{ y: heroY, opacity: heroOpacity }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent z-10" />
-          <img 
-            src={heroImg} 
+          <Image
+            fill
+            src="/assets/hero.png" 
             alt="Luxury home exterior with modern windows" 
             className="w-full h-full object-cover object-center"
           />
@@ -160,8 +220,9 @@ export default function Home() {
             <FadeIn delay={0.2} direction="up">
               <Card className="rounded-none border-border bg-card overflow-hidden group">
                 <div className="relative h-[400px] overflow-hidden">
-                  <img 
-                    src={windowModernImg} 
+                  <Image
+                    fill
+                    src="/assets/window-modern.png" 
                     alt="Modern Black Frame Windows" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -188,8 +249,9 @@ export default function Home() {
             <FadeIn delay={0.4} direction="up">
               <Card className="rounded-none border-border bg-card overflow-hidden group">
                 <div className="relative h-[400px] overflow-hidden">
-                  <img 
-                    src={windowClassicImg} 
+                  <Image
+                    fill
+                    src="/assets/window-classic.png" 
                     alt="Classic White Paned Windows" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -223,8 +285,9 @@ export default function Home() {
             <FadeIn direction="right">
               <div className="relative">
                 <div className="absolute -inset-4 bg-muted rounded-sm -z-10" />
-                <img 
-                  src={craftsmanshipImg} 
+                <Image
+                  fill
+                  src="/assets/craftsmanship.png" 
                   alt="Craftsman installing window" 
                   className="w-full h-auto object-cover relative z-10 shadow-xl"
                 />
@@ -292,6 +355,95 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
                   <p className="text-background/70 px-4">{step.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="отзывы" className="py-24 bg-muted/40">
+        <div className="container mx-auto px-6">
+          <FadeIn>
+            <div className="text-center mb-14">
+              <div className="text-primary font-semibold tracking-wider uppercase text-sm mb-3">Отзывы клиентов</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground">Нам доверяют соседи</h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Наталья К.",
+                city: "Батайск",
+                rating: 5,
+                text: "Заказывали профилактику балконного блока и замену уплотнителей. Мастер приехал вовремя, всё объяснил, работал аккуратно. После обслуживания окна стали закрываться плавно, сквозняков нет. Очень довольны — рекомендуем всем соседям!",
+                service: "Профилактика окон",
+              },
+              {
+                name: "Дмитрий В.",
+                city: "Ростов-на-Дону",
+                rating: 5,
+                text: "Поставили москитные сетки на все окна квартиры. Сетки плотные, рамки подогнаны идеально — ни одна не болтается. Цена порадовала, а скорость работы удивила: управились за полдня. Теперь лето без комаров — это бесценно.",
+                service: "Москитные сетки",
+              },
+              {
+                name: "Светлана и Игорь М.",
+                city: "Аксай",
+                rating: 5,
+                text: "Делали остекление лоджии под ключ. Замеры, монтаж, финишная отделка — всё одна бригада, никаких «третьих лиц». Получили тёплый балкон, теперь там кабинет. Качество швов и стыков на высоте, никаких продувов после первой же зимы.",
+                service: "Остекление балконов",
+              },
+              {
+                name: "Андрей Т.",
+                city: "Батайск",
+                rating: 5,
+                text: "Обращался по поводу модернизации старых окон — хотел добавить режим проветривания и поменять фурнитуру. Мастер предложил оптимальный вариант без лишних трат. Теперь окна работают как новые, при этом обошлось намного дешевле полной замены.",
+                service: "Модернизация",
+              },
+              {
+                name: "Марина Л.",
+                city: "Ростов-на-Дону",
+                rating: 5,
+                text: "Звонила по телефону — взяли трубку сразу, без ожидания. Мастер приехал на следующий день. Отрегулировал три окна и дверь за час. Цена чисто символическая за такое качество. Буду рекомендовать всем знакомым без раздумий.",
+                service: "Профилактика окон",
+              },
+              {
+                name: "Олег Ф.",
+                city: "Аксай",
+                rating: 5,
+                text: "Долго тянул с остеклением балкона, боялся что будет дорого и долго. Оказалось всё наоборот: смету прислали в тот же день, работы заняли два дня. Монтажники убрали за собой весь мусор. Балкон стал любимым местом в квартире.",
+                service: "Остекление балконов",
+              },
+            ].map((review, i) => (
+              <FadeIn key={i} delay={0.1 * (i % 3)} direction="up">
+                <div
+                  data-testid={`card-review-${i}`}
+                  className="bg-card border border-border p-6 flex flex-col gap-4 h-full shadow-sm hover:shadow-md transition-shadow"
+                >
+                  {/* Stars */}
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: review.rating }).map((_, s) => (
+                      <svg key={s} className="w-4 h-4 fill-primary text-primary" viewBox="0 0 20 20">
+                        <path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  {/* Review text */}
+                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">«{review.text}»</p>
+
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-3 border-t border-border">
+                    <div>
+                      <div className="font-semibold text-sm text-foreground">{review.name}</div>
+                      <div className="text-xs text-muted-foreground">{review.city}</div>
+                    </div>
+                    <span className="text-[11px] font-medium text-primary bg-primary/8 px-2 py-1 rounded-full border border-primary/20">
+                      {review.service}
+                    </span>
+                  </div>
                 </div>
               </FadeIn>
             ))}
