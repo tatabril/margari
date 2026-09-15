@@ -1,8 +1,3 @@
-// import { createRoot } from "react-dom/client";
-// import App from "../App";
-// import "./index.css";
-
-// createRoot(document.getElementById("root")!).render(<App />);
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";

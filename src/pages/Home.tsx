@@ -15,9 +15,9 @@ import {
   Mail,
   MapPin
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@/shared/ui/button";
+import { Card, CardContent } from "@/shared/ui/card";
+import { Separator } from "@/shared/ui/separator";
 import Image from "next/image";
 
 const FadeIn = ({ children, delay = 0, direction = "up", className = "" }: { children: React.ReactNode, delay?: number, direction?: "up" | "down" | "left" | "right", className?: string }) => {
@@ -293,7 +293,7 @@ export default function Home() {
                 />
                 <div className="absolute -bottom-8 -right-8 bg-secondary text-secondary-foreground p-8 max-w-xs hidden md:block z-20 shadow-2xl">
                   <Quote className="w-10 h-10 text-primary mb-4 opacity-50" />
-                  <p className="text-lg font-medium leading-snug">"A window is only as good as its installation. We never cut corners."</p>
+                  <p className="text-lg font-medium leading-snug">&quot;A window is only as good as its installation. We never cut corners.&quot;</p>
                   <p className="mt-4 text-sm opacity-80 uppercase tracking-widest font-semibold">— Chief Installer</p>
                 </div>
               </div>
@@ -304,7 +304,7 @@ export default function Home() {
                 <div className="text-primary font-semibold tracking-wider uppercase mb-4 text-sm">The Magragi Difference</div>
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">Obsessive Attention to the Smallest Details.</h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  We don't just supply windows; we engineer the perfect seal between your home and the elements. Our master installers undergo rigorous training to ensure every frame is plumb, level, and perfectly weather-sealed.
+                  We don&apos;t just supply windows; we engineer the perfect seal between your home and the elements. Our master installers undergo rigorous training to ensure every frame is plumb, level, and perfectly weather-sealed.
                 </p>
                 
                 <div className="space-y-6">
@@ -462,7 +462,7 @@ export default function Home() {
             <FadeIn>
               <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Ready to see the difference?</h2>
               <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">
-                Schedule a complimentary consultation and discover how Magragi can transform your home's comfort, security, and curb appeal.
+                Schedule a complimentary consultation and discover how Magragi can transform your home&apos;s comfort, security, and curb appeal.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="h-14 px-8 text-base rounded-none bg-primary hover:bg-primary/90 text-primary-foreground border-0">
