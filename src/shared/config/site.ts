@@ -14,8 +14,8 @@ export const siteConfig = {
     line2: "Выезд: Ростов, Аксай",
   },
   messengers: {
-    telegram: "https://t.me/",
-    max: "https://vk.me/",
+    telegram: "https://t.me/PavelDonor",
+    max: "https://max.ru/u/f9LHodD0cOL5cGyHHZNbRLh_OR00TWmXeD_MkPbBRWd3mw1VXHmA9LaZrSc",
   },
   trustStats: [
     { label: "Years Experience", value: "25+" },

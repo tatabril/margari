@@ -1,8 +1,9 @@
 export const mainNav = [
-  { label: "Профилактика окон", href: "#профилактика" },
-  { label: "Модернизация", href: "#модернизация" },
-  { label: "Москитные сетки", href: "#сетки" },
-  { label: "Балконы", href: "#балконы" },
+  { label: "Услуги", href: "#услуги" },
+  { label: "Преимущества", href: "#преимущества" },
+  { label: "Процесс", href: "#процесс" },
+  { label: "Отзывы", href: "#отзывы" },
+  { label: "Контакты", href: "#контакты" },
 ] as const;
 
 export type NavItem = (typeof mainNav)[number];

@@ -15,6 +15,7 @@
       "utils": "@/shared/lib/utils",
       "ui": "@/shared/ui",
       "lib": "@/shared/lib",
-      "hooks": "@/shared/hooks"
+      "hooks": "@/shared/hooks",
+      "assets": "@/shared/assets"
     }
 }

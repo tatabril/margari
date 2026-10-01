@@ -19,7 +19,7 @@ export function CallButton({
   variant = "default",
   size = "default",
   showIcon = true,
-  label = siteConfig.phoneDisplay,
+  label,
   testId = "link-phone",
 }: CallButtonProps) {
   return (
@@ -30,8 +30,8 @@ export function CallButton({
       className={cn(className)}
     >
       <a href={`tel:${siteConfig.phone}`} data-testid={testId}>
-        {showIcon ? <Phone className="w-3.5 h-3.5 mr-1.5" /> : null}
-        {label}
+        {showIcon ? <Phone className="sm:w-3.5 sm:h-3.5 w-5 h-5 sm:mr-1.5 mr-0.5" /> : null}
+        {label ? <span className="inline">{label}</span> : null}
       </a>
     </Button>
   );

@@ -5,6 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
+  --color-max-blue: hsl(var(--max-blue));
+  --color-max-purple: hsl(var(--max-purple));
+  --color-max-cyan: hsl(var(--max-cyan));
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-border: hsl(var(--border));
@@ -55,7 +60,7 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-accent-border: var(--sidebar-accent-border);
   --color-sidebar-ring: hsl(var(--sidebar-ring));
-
+  
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
   --font-mono: var(--app-font-mono);
@@ -64,10 +69,17 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --variant-hover: @media (hover: hover) { &:hover };
 }
 
 /* LIGHT MODE */
 :root {
+  /* Max's custom colors */
+  --max-blue: 252 100% 55%;
+  --max-purple: 275 100% 50%;
+  --max-cyan: 195 100% 50%;
+
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
 
