@@ -20,7 +20,7 @@ export function Header() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4 lg:px-6 py-2 flex items-center justify-between gap-4 min-h-18">
-        <div className="flex items-center gap-3 justify-start">
+        <div className="flex items-center gap-5 justify-start">
         <BurgerButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
         <a
           href="#top"
@@ -31,14 +31,14 @@ export function Header() {
           <span className="sm:text-4xl text-2xl font-extrabold italic tracking-tight text-primary group-hover:text-sidebar-primary transition-colors">
             {siteConfig.brand}
           </span>
-          <span className="hidden lg:inline text-[11px] text-muted-foreground font-normal leading-tight max-w-55">
+          <span className="hidden lg:inline text-xs text-muted-foreground font-normal leading-tight max-w-55">
             {siteConfig.tagline}
           </span>
         </a>
         </div>
 
         <div className="hidden md:flex flex-col items-center gap-1 flex-1">
-          <div className="text-[11px] text-muted-foreground tracking-wide flex lg:flex-row flex-col items-center">
+          <div className="text-sm text-muted-foreground tracking-wide flex lg:flex-row flex-col items-center">
            <span> 📍 {siteConfig.geo}</span>
            <span className="hidden lg:inline">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
            <span>{siteConfig.hours}</span>
@@ -49,7 +49,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 data-testid={`nav-${item.href.slice(1)}`}
-                className="px-3 py-1 text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 rounded transition-colors whitespace-nowrap"
+                className="px-3 py-1 text-base font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 rounded transition-colors whitespace-nowrap"
               >
                 {item.label}
               </a>

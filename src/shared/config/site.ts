@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Premium windows engineered for life. Serving residential and commercial clients with uncompromising quality and master craftsmanship.",
   phone: "+79081823188",
-  phoneDisplay: "8(908)182-31-88",
+  phoneDisplay: "8(908) 182-31-88",
   email: "hello@magragi.com",
   geo: "Батайск, Ростов, Аксай",
   hours: "Ежедневно с 08:00 до 20:00",

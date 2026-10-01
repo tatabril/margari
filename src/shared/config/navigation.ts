@@ -1,9 +1,9 @@
 export const mainNav = [
-  { label: "Услуги", href: "#услуги" },
-  { label: "Преимущества", href: "#преимущества" },
-  { label: "Процесс", href: "#процесс" },
-  { label: "Отзывы", href: "#отзывы" },
-  { label: "Контакты", href: "#контакты" },
+  { label: "Услуги", href: "#services" },
+  { label: "Преимущества", href: "#advantages" },
+  { label: "Процесс", href: "#process" },
+  { label: "Отзывы", href: "#reviews" },
+  { label: "Контакты", href: "#contacts" },
 ] as const;
 
 export type NavItem = (typeof mainNav)[number];

@@ -13,7 +13,7 @@ type RequestEstimateButtonProps = {
 export function RequestEstimateButton({
   className,
   label = "Request an Estimate",
-  href = "#отзывы",
+  href = "#reviews",
 }: RequestEstimateButtonProps) {
   return (
     <Button
