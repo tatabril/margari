@@ -7,7 +7,7 @@ import { siteConfig } from "@/shared/config";
 
 export function Cta() {
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section className="md:py-24 py-12 relative overflow-hidden bg-background">
       <div className="absolute inset-0 bg-muted/50 -z-10" />
       <div className="container mx-auto px-6">
         <div className="bg-secondary text-secondary-foreground rounded-none p-12 md:p-20 relative overflow-hidden shadow-2xl max-w-5xl mx-auto text-center">

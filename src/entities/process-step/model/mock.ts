@@ -1,10 +1,10 @@
-import { Clock, ShieldCheck, Wrench } from "lucide-react";
+import { ShieldCheck, Wrench, DraftingCompass } from "lucide-react";
 import type { ProcessStep } from "./types";
 
 export const processStepsMock: ProcessStep[] = [
   {
     id: "01",
-    icon: Clock,
+    icon: DraftingCompass,
     title: "Замер и расчет",
     description:
       "Мастер бесплатно приедет в Ростове, Батайске или Аксае. Проведет диагностику, сделает замеры и на месте назовет честную стоимость без скрытых доплат.",

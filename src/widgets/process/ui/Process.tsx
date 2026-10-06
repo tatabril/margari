@@ -12,15 +12,10 @@ export function Process() {
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Как мы работаем
             </h2>
-            {/* <p className="text-lg text-background/70">
-            От первого звонка до финальной проверки — 
-            мы делаем ремонт окон и остекление вашего дома абсолютно беззаботным для вас.
-            </p> */}
           </FadeIn>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 relative">
-          {/* <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-px bg-background/50" /> */}
 
           {processStepsMock.map((step, i) => (
             <FadeIn
