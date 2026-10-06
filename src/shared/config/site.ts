@@ -18,10 +18,10 @@ export const siteConfig = {
     max: "https://max.ru/u/f9LHodD0cOL5cGyHHZNbRLh_OR00TWmXeD_MkPbBRWd3mw1VXHmA9LaZrSc",
   },
   trustStats: [
-    { label: "Years Experience", value: "25+" },
-    { label: "Windows Installed", value: "10k+" },
-    { label: "Lifetime Warranty", value: "100%" },
-    { label: "Satisfied Clients", value: "4.9/5" },
+    { label: "Стоимость в договоре не изменится в процессе работы", value: "0 ₽"},
+    { label: "Официальная гарантия на все выполненные работы", value: "3 года" },
+    { label: "Используем только оригинальные немецкие материалы и надежную долговечную фурнитуру", value: "100 %" },
+    { label: "Довольных клиентов за все время работы", value: "7500 +" }
   ],
 } as const;
 

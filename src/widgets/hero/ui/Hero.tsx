@@ -10,6 +10,7 @@ import { MaxIcon } from "@/shared/assets/max-icon";
 import { FaTelegramPlane } from "react-icons/fa";
 import { siteConfig } from "@/shared/config";
 import { useCallPhone } from "@/shared/hooks";
+import { CallButtonMobile, CallButtonDesktop } from "@/features/call-to-action";
 
 
 export function Hero() {
@@ -56,9 +57,14 @@ export function Hero() {
             Работаем честно по договору с гарантией 3 года.
             </p>
           </FadeIn>
+          
           <FadeIn delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4">
-            <Button
+              {isMobile ? <CallButtonMobile  
+                 isArrowRight 
+                 isPhoneIcon={false}
+                 label="Позвонить мастеру" /> : <CallButtonDesktop label="Позвонить:"/>}
+            {/* <Button
         onClick={handleDesktopClick}
         className="h-14 px-8 text-base rounded-none bg-primary hover:bg-primary/90 relative group active:scale-95 transition-transform cursor-pointer"
         type="button"
@@ -71,9 +77,11 @@ export function Hero() {
         <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs bg-primary-foreground text-primary rounded-sm font-bold">
           {isCopied ? <span className="text-green-700">✓ Номер скопирован!</span> : "📋 Клик — скопировать номер"}
         </span>
-      </Button>
+      </Button> */}
+      
       <div className="flex flex-row gap-2">
       <Button
+      asChild
                 size="lg"
                 variant="outline"
                 className="h-14 lg:px-8 px-5 text-base rounded-none border-border hover:bg-muted cursor-pointer"
@@ -84,12 +92,14 @@ export function Hero() {
         rel="noopener noreferrer"
         data-testid="link-telegram"
         aria-label="Telegram"
+        className="w-full h-full"
       >
                   <FaTelegramPlane
                 />
       </a>
               </Button>
               <Button
+              asChild
                 size="lg"
                 variant="outline"
                 className="h-14 lg:px-8 px-5 text-base rounded-none border-border hover:bg-muted cursor-pointer"
@@ -100,6 +110,7 @@ export function Hero() {
         rel="noopener noreferrer"
         data-testid="link-max"
         aria-label="MAX"
+        className="w-full h-full"
       >
                <MaxIcon/>
       </a>

@@ -6,22 +6,26 @@ import { FadeIn } from "@/shared/ui-motion";
 
 const details = [
   {
-    title: "Precision Measurement",
-    desc: "Laser-accurate sizing ensures a perfect fit, eliminating drafts and structural stress.",
+    title: "Точные измерения",
+    desc: "Лазерная точность при замере и диагностике гарантирует идеальную посадку окон. Это полностью исключает риск сквозняков и скрытых дефектов при эксплуатации",
   },
   {
-    title: "White-Glove Installation",
-    desc: "We protect your floors, clean our work area daily, and treat your home with profound respect.",
+    title: "Установка и сервис на высшем уровне",
+    desc: "Бережно защищаем полы и мебель пленкой перед началом работ. Всегда убираем за собой строительный мусор и сдаем объект в абсолютной чистоте",
   },
   {
-    title: "Rigorous Weatherproofing",
-    desc: "Proprietary flashing techniques ensure a watertight seal that outlasts the building code.",
+    title: "Тщательная защита от непогоды",
+    desc: "Строго соблюдаем технологию гидроизоляции швов и герметизации подоконников. Защищаем ваши окна от появления конденсата, наледи и сырости",
+  },
+  {
+    title: "Бескомпромиссная борьба с плесенью",
+    desc: "Не маскируем проблему, а полностью уничтожаем источник грибка на откосах и рамах. Обрабатываем поверхности глубокими профессиональными антисептиками",
   },
 ] as const;
 
 export function Craftsmanship() {
   return (
-    <section id="craftsmanship" className="py-24 bg-background">
+    <section id="advantages" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <FadeIn direction="right">
@@ -37,11 +41,10 @@ export function Craftsmanship() {
               <div className="absolute -bottom-8 -right-8 bg-secondary text-secondary-foreground p-8 max-w-xs hidden md:block z-20 shadow-2xl">
                 <Quote className="w-10 h-10 text-primary mb-4 opacity-50" />
                 <p className="text-lg font-medium leading-snug">
-                  &quot;A window is only as good as its installation. We never cut
-                  corners.&quot;
+                  &quot;Даже самое дорогое немецкое окно не будет держать тепло, если мастер сэкономил на пене или нарушил геометрию при монтаже. Мы контролируем каждый шаг&quot;
                 </p>
                 <p className="mt-4 text-sm opacity-80 uppercase tracking-widest font-semibold">
-                  — Chief Installer
+                  — Наш мастер-установщик
                 </p>
               </div>
             </div>
@@ -50,16 +53,15 @@ export function Craftsmanship() {
           <div className="max-w-xl">
             <FadeIn delay={0.2} direction="left">
               <div className="text-primary font-semibold tracking-wider uppercase mb-4 text-sm">
-                The Magragi Difference
+                 мы отвечаем за качество
               </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
-                Obsessive Attention to the Smallest Details.
+              Наши преимущества
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                We don&apos;t just supply windows; we engineer the perfect seal
-                between your home and the elements. Our master installers undergo
-                rigorous training to ensure every frame is plumb, level, and
-                perfectly weather-sealed.
+              Отвечаем за каждый миллиметр монтажного шва. 
+              Опыт наших мастеров и строгий контроль качества гарантируют: 
+              окна будут установлены идеально ровно и надежно защищены от любой непогоды, промерзаний и уличного шума
               </p>
 
               <div className="space-y-6">

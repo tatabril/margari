@@ -2,29 +2,79 @@ import type { Service } from "./types";
 
 export const servicesMock: Service[] = [
   {
-    id: "apex",
-    image: "/assets/window-modern.png",
-    alt: "Modern Black Frame Windows",
-    title: "The Apex Collection",
-    subtitle: "Ultra-slim profiles. Maximum glass. Modern aesthetics.",
+    id: "maintenance",
+    image: "/assets/maintenance.webp",
+    alt: "Профилактика окон",
+    title: "Профилактика окон",
+    subtitle: "Фиксированная цена — 1000 ₽",
     features: [
-      "Thermally broken aluminum framing",
-      "Triple-pane acoustic glazing",
-      "Minimalist matte black hardware",
+      "Смазка всех подвижных механизмов фурнитуры",
+      "Профессиональная регулировка створок",
+      "Перевод окон на правильный зимний/летний режим",
+      "Подходит для абсолютно любых оконных конструкций",
+      "Устранение мелких перекосов до того, как сломается замок"
     ],
-    cta: "Explore Apex",
+    cta: "Заказать услугу",
   },
   {
-    id: "heritage",
-    image: "/assets/window-classic.png",
-    alt: "Classic White Paned Windows",
-    title: "The Heritage Collection",
-    subtitle: "Timeless detailing. Traditional warmth. Modern efficiency.",
+    id: "modernization",
+    image: "/assets/modernization.webp",
+    alt: "Модернизация окон",
+    title: "Модернизация окон",
+    subtitle: "Скидка 15% при комплексном заказе",
     features: [
-      "Premium composite wood core",
-      "Simulated divided lites (SDL)",
-      "Classic white and custom paint finishes",
+      "Замена старого уплотнителя на надежный 2-камерный",
+      "Полная замена и регулировка ручек, замков и фурнитуры",
+      "Качественная герметизация по шву подоконника",
+      "Удаление плеcени, грибка и герметизация снаружи",
+      "Монтаж новых откосов и перепенка под водоотливом",
+      "Замена уплотнительной резины прямо на стеклопакетах"
     ],
-    cta: "Explore Heritage",
+    cta: "Заказать услугу",
+  },
+  {
+    id: "balcony-glazing",
+    image: "/assets/balcony-glazing.webp",
+    alt: "Остекление балконов",
+    title: "Остекление и обшивка балконов",
+    subtitle: "Под ключ с гарантией по договору",
+    features: [
+      "Остекление балконов, лоджий и балконных блоков",
+      "Варианты на выбор: теплое ПВХ или холодное алюминиевое",
+      "Внутренняя и внешняя обшивка современными материалами",
+      "Утепление и расширение полезной площади квартиры",
+      "Использование долговечной немецкой фурнитуры"
+    ],
+    cta: "Вызвать мастера на замер",
+  },
+  {
+    id: "mosquito-nets",
+    image: "/assets/moskito.webp",
+    alt: "Москитные сетки",
+    title: "Москитные сетки",
+    subtitle: "Скидка 10% при подписке на Telegram",
+    features: [
+      "Обычная сетка — классическая надежная защита от крупных насекомых",
+      "Анти-мошка — уменьшенная ячейка против самого мелкого гнуса",
+      "Анти-пыль — задерживает уличную пыль, пыльцу и аллергены",
+      "Анти-Кошка — сверхпрочное полотно, устойчивое к когтям питомцев",
+      "Раздвижная сетка «Плиссе» — современная складная сетка-гармошка"
+    ],
+    cta: "Заказать сетку",
+  },
+  {
+    id: "glass-reinforcement",
+    image: "/assets/window-classic.png",
+    alt: "Бронирование стеклопакетов",
+    title: "Бронирование стеклопакетов",
+    subtitle: "Скидка 10% при подписке на Telegram",
+    features: [
+      "Обычная сетка — классическая надежная защита от крупных насекомых",
+      "Анти-мошка — уменьшенная ячейка против самого мелкого гнуса",
+      "Анти-пыль — задерживает уличную пыль, пыльцу и аллергены",
+      "Анти-Кошка — сверхпрочное полотно, устойчивое к когтям питомцев",
+      "Раздвижная сетка «Плиссе» — современная складная сетка-гармошка"
+    ],
+    cta: "Заказать услугу",
   },
 ];

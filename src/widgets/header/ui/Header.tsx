@@ -1,16 +1,17 @@
 "use client";
 
 import { siteConfig, mainNav } from "@/shared/config";
-import { CallButton } from "@/features/call-to-action";
+
 import { MessengerLinks } from "@/features/messenger-links";
 import { MobileMenu } from "./MobileMenu";
 import { BurgerButton } from "./BurgerButton";
 import { useState } from "react";
 import { useMediaQuery } from "@/shared/hooks";
+import { CallButtonMobile, CallButtonDesktop } from "@/features/call-to-action";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isMobile = useMediaQuery("(max-width: 1024px)");
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -57,12 +58,9 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           <div>
-            <CallButton 
-            className="sm:rounded-sm rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold sm:px-4 px-2 py-2 text-sm h-auto" 
-            label={isMobile ? undefined : siteConfig.phoneDisplay}
-            />
+            {isMobile ? <CallButtonMobile isPhoneIcon /> : <CallButtonDesktop size="sm"/>}
           </div>
           <MessengerLinks />
         </div>

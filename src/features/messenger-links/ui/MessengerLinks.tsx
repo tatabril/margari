@@ -11,7 +11,7 @@ type MessengerLinksProps = {
 
 export function MessengerLinks({ className }: MessengerLinksProps) {
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex items-center gap-3", className)}>
       <a
         href={siteConfig.messengers.telegram}
         target="_blank"
