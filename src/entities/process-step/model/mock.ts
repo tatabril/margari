@@ -3,24 +3,24 @@ import type { ProcessStep } from "./types";
 
 export const processStepsMock: ProcessStep[] = [
   {
-    id: "consultation",
+    id: "01",
     icon: Clock,
-    title: "1. Consultation",
+    title: "Замер и расчет",
     description:
-      "We assess your needs, measure your spaces, and provide a clear, no-nonsense estimate.",
+      "Мастер бесплатно приедет в Ростове, Батайске или Аксае. Проведет диагностику, сделает замеры и на месте назовет честную стоимость без скрытых доплат.",
   },
   {
-    id: "fabrication",
+    id: "02",
     icon: Wrench,
-    title: "2. Custom Fabrication",
+    title: "Подготовка и изготовление",
     description:
-      "Your windows are manufactured to exact specifications using premium materials.",
+      "Подберем оригинальные немецкие комплектующие и уплотнители по вашим техническим требованиям. Изготовим сетки и конструкции точно под размеры окон.",
   },
   {
-    id: "installation",
+    id: "03",
     icon: ShieldCheck,
-    title: "3. Master Installation",
+    title: "Монтаж и гарантия",
     description:
-      "Our certified crew installs your windows flawlessly, backed by our lifetime warranty.",
+      "Опытная бригада выполнит ремонт и монтаж. Бережно защитим интерьер, уберем за собой строительный мусор и подпишем официальный договор с гарантией до 3 лет.",
   },
 ];
