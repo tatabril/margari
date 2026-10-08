@@ -44,9 +44,6 @@ export function ServiceCard({ service, isFullWidth = false, actionComponent }: S
         </ul>
         
         {actionComponent}
-        {/* <Button variant="outline" className="w-full rounded-none cursor-pointer" onClick={onClick}>
-          {service.cta} <ChevronRight className="w-4 h-4 ml-2" />
-        </Button> */}
       </CardContent>
     </Card>
   );

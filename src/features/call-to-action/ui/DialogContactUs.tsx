@@ -1,5 +1,4 @@
 import { DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/shared/ui/dialog";
-import { CallButtonDialog } from "./CallButton";
 import { MessageButton } from "./MessageButton";
 import { siteConfig } from "@/shared/config";
 import { FaTelegramPlane } from "react-icons/fa";

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/shared/ui/button";
 import { FadeIn } from "@/shared/ui-motion";
@@ -9,7 +9,6 @@ import { useMediaQuery } from "@/shared/hooks";
 import { MaxIcon } from "@/shared/assets/max-icon";
 import { FaTelegramPlane } from "react-icons/fa";
 import { siteConfig } from "@/shared/config";
-import { useCallPhone } from "@/shared/hooks";
 import { CallButtonMobile, CallButtonDesktop } from "@/features/call-to-action";
 
 
@@ -18,7 +17,6 @@ export function Hero() {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const isMobile = useMediaQuery("(max-width: 1024px)");
-  const { isCopied, handleDesktopClick } = useCallPhone(siteConfig.phone);
 
   return (
     <section className="relative lg:h-screen h-auto flex items-center pt-20 lg:overflow-hidden overflow-visible">
@@ -64,39 +62,24 @@ export function Hero() {
                  isArrowRight 
                  isPhoneIcon={false}
                  label="Позвонить мастеру" /> : <CallButtonDesktop label="Позвонить:"/>}
-            {/* <Button
-        onClick={handleDesktopClick}
-        className="h-14 px-8 text-base rounded-none bg-primary hover:bg-primary/90 relative group active:scale-95 transition-transform cursor-pointer"
-        type="button"
-      >
-        {isMobile ? <> <a href={`tel:${siteConfig.phone}`} data-testid="link-phone" className="flex flex-row no-underline items-center">
-          Позвонить мастеру <ArrowRight className="ml-2 w-5 h-5" /></a></> :
-         <span className="group-hover:opacity-0 transition-opacity w-fit whitespace-nowrap">
-          Позвонить: <span className="font-semibold text-xl">{siteConfig.phoneDisplay}</span>
-        </span>}
-        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs bg-primary-foreground text-primary rounded-sm font-bold">
-          {isCopied ? <span className="text-green-700">✓ Номер скопирован!</span> : "📋 Клик — скопировать номер"}
-        </span>
-      </Button> */}
       
       <div className="flex flex-row gap-2">
-      <Button
-      asChild
+             <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="h-14 lg:px-8 px-5 text-base rounded-none border-border hover:bg-muted cursor-pointer"
               >
                   <a
-        href={siteConfig.messengers.telegram}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-testid="link-telegram"
-        aria-label="Telegram"
-        className="w-full h-full"
-      >
-                  <FaTelegramPlane
-                />
-      </a>
+                    href={siteConfig.messengers.telegram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="link-telegram"
+                    aria-label="Telegram"
+                    className="w-full h-full"
+                  >
+                    <FaTelegramPlane/>
+                  </a>
               </Button>
               <Button
               asChild

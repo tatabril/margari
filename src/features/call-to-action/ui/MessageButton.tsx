@@ -17,7 +17,7 @@ export function MessageButton({href, ariaLabel, testId, icon, size = "lg", class
            asChild
            size={size}
            variant="outline"
-           className={cn("h-14 lg:px-8 px-5 text-base rounded-none border-border hover:bg-muted cursor-pointer", className)}
+           className={cn("text-base rounded-none border-border hover:bg-muted cursor-pointer", className)}
         >
             <a
               href={href}
