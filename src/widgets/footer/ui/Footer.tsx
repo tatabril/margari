@@ -1,77 +1,76 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+"use client";
+
+import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { Separator } from "@/shared/ui/separator";
 import { siteConfig } from "@/shared/config";
 import { servicesMock } from "@/entities/service";
+import { MessengerLinks } from "@/features/messenger-links";
+import { useMediaQuery, useCallPhone } from "@/shared/hooks";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/shared/ui/tooltip";
 
 export function Footer() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const { handleDesktopClick } = useCallPhone(siteConfig.phone);
+
   return (
     <footer className="bg-foreground text-background py-16 border-t border-background/10">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-4 md:gap-12 gap-9 md:mb-12 mb-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center text-primary-foreground font-bold text-xl leading-none">
-                M
-              </div>
-              <span className="text-xl font-bold tracking-tight">
-                {siteConfig.brandLatin}
+            <div className="flex items-center gap-2 md:mb-6 mb-4">
+              <span className="text-xl font-bold italic tracking-tight">
+                {siteConfig.brand} - оконная компания
               </span>
             </div>
-            <p className="text-background/60 max-w-sm mb-8">
+            <p className="text-background/60 max-w-sm md:mb-8 mb-6">
               {siteConfig.description}
             </p>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 bg-background/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                <span className="sr-only">Facebook</span>
-                <div
-                  className="w-4 h-4 bg-current"
-                  style={{
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                  }}
-                />
-              </div>
-              <div className="w-10 h-10 bg-background/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                <span className="sr-only">Instagram</span>
-                <div
-                  className="w-4 h-4 bg-current"
-                  style={{
-                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-                  }}
-                />
-              </div>
-            </div>
+            <p className="text-background/60 max-w-sm md:mb-4 mb-3">Мы на связи в мессенджерах:</p>
+            <MessengerLinks />
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6 tracking-wider uppercase text-background/50">
-              Contact
+            <h4 className="font-bold text-lg md:mb-6 mb-4 tracking-wider uppercase text-background/50">
+              Контакты
             </h4>
             <ul className="space-y-4 text-background/80">
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4" /> {siteConfig.phoneDisplay}
+              <li className="flex items-center gap-3 hover:text-white transition-colors cursor-pointer">
+                <Phone className="w-4 h-4" />
+                {isMobile ? <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a> : (
+
+<Tooltip>
+<TooltipTrigger asChild onClick={handleDesktopClick}>
+<span>{siteConfig.phoneDisplay}</span>
+</TooltipTrigger>
+<TooltipContent className="bg-primary text-white">
+   <p>Копировать номер</p>
+</TooltipContent>
+</Tooltip>
+                )}
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4" /> {siteConfig.email}
-              </li>
+             
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 shrink-0 mt-1" />
                 {siteConfig.address.line1}
                 <br />
                 {siteConfig.address.line2}
               </li>
+              <li className="flex items-start gap-3">
+                <Clock className="w-4 h-4 shrink-0 mt-1" /> {siteConfig.hours}
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-lg mb-6 tracking-wider uppercase text-background/50">
-              Collections
+              Услуги
             </h4>
-            <ul className="space-y-3 text-background/80">
+            <ul className="md:space-y-3 space-y-2 text-background/80">
               {servicesMock.map((service) => (
-                <li key={service.id}>
+                <li key={service.id} id={service.id}>
                   <a
-                    href="#services"
-                    className="hover:text-primary transition-colors"
+                    href={`#${service.id}`}
+                    className="hover:text-white transition-colors"
                   >
                     {service.title}
                   </a>
@@ -83,19 +82,19 @@ export function Footer() {
 
         <Separator className="bg-background/10 mb-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-background/50 gap-4">
-          <p>
-            &copy; {new Date().getFullYear()} {siteConfig.brandLatin} Windows.
-            All rights reserved.
+        <div className="grid md:grid-cols-4 md:gap-12 gap-2 md:mb-12 mb-2 text-sm text-background/50">
+          <p className="md:col-span-2">
+            &copy; {new Date().getFullYear()} {siteConfig.brand}.
+           Все права защищены.
           </p>
-          <div className="flex gap-6">
+          {/* <div className="flex gap-6"> */}
             <a href="#" className="hover:text-background transition-colors">
-              Privacy Policy
+              Политика конфиденциальности
             </a>
             <a href="#" className="hover:text-background transition-colors">
-              Terms of Service
+              Пользовательское соглашение
             </a>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </footer>

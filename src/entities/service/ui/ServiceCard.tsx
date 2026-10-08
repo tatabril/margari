@@ -15,7 +15,7 @@ type ServiceCardProps = {
 
 export function ServiceCard({ service, isFullWidth = false, actionComponent }: ServiceCardProps) {
   return (
-    <Card className={cn("rounded-none border-border bg-card overflow-hidden group w-full h-full flex flex-col", isFullWidth && "lg:flex-row flex-col")}>
+    <Card id={service.id} className={cn("rounded-none border-border bg-card overflow-hidden group w-full h-full flex flex-col", isFullWidth && "lg:flex-row flex-col")}>
       <div className={cn("relative h-100 overflow-hidden ", isFullWidth && "lg:flex-1 ")}>
         <Image
           fill

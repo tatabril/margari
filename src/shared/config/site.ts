@@ -3,9 +3,9 @@ export const siteConfig = {
   brandLatin: "MAGRAGI",
   tagline: "Ремонт и модернизация окон, остекление балконов",
   description:
-    "Premium windows engineered for life. Serving residential and commercial clients with uncompromising quality and master craftsmanship.",
+    "Ремонт и остекление окон в Ростове и Батайске. Работаем на совесть и делаем как для себя — с немецким качеством, честной ценой и без скрытых накруток",
   phone: "+79081823188",
-  phoneDisplay: "8(908) 182-31-88",
+  phoneDisplay: "8 (908) 182-31-88",
   email: "hello@magragi.com",
   geo: "Батайск, Ростов, Аксай",
   hours: "Ежедневно с 08:00 до 20:00",
