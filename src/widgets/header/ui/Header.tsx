@@ -8,6 +8,7 @@ import { BurgerButton } from "./BurgerButton";
 import { useState } from "react";
 import { useMediaQuery } from "@/shared/hooks";
 import { CallButtonMobile, CallButtonDesktop } from "@/features/call-to-action";
+import Link from "next/link";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,8 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-6 py-2 flex items-center justify-between gap-4 min-h-18">
         <div className="flex items-center gap-5 justify-start">
         <BurgerButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
-        <a
-          href="#top"
+        <Link
+          href="/"
           data-testid="link-logo"
           className="flex flex-col leading-tight shrink-0 group"
           onClick={handleLogoClick}
@@ -35,7 +36,7 @@ export function Header() {
           <span className="hidden lg:inline text-xs text-muted-foreground font-normal leading-tight max-w-55">
             {siteConfig.tagline}
           </span>
-        </a>
+        </Link>
         </div>
 
         <div className="hidden md:flex flex-col items-center gap-1 flex-1">

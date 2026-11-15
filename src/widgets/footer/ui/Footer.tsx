@@ -1,21 +1,24 @@
 "use client";
 
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { Separator } from "@/shared/ui/separator";
 import { siteConfig } from "@/shared/config";
 import { servicesMock } from "@/entities/service";
 import { MessengerLinks } from "@/features/messenger-links";
 import { useMediaQuery, useCallPhone } from "@/shared/hooks";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/shared/ui/tooltip";
+import Link from "next/link";
+
+import { legalInfo } from "../config";
 
 export function Footer() {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const { handleDesktopClick } = useCallPhone(siteConfig.phone);
 
   return (
-    <footer className="bg-foreground text-background py-16 border-t border-background/10">
+    <footer className="bg-foreground text-background pt-16 pb-6 border-t border-background/10">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 md:gap-12 gap-9 md:mb-12 mb-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 md:gap-12 gap-9 md:mb-12 mb-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 md:mb-6 mb-4">
               <span className="text-xl font-bold italic tracking-tight">
@@ -61,7 +64,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-2 lg:col-span-1">
             <h4 className="font-bold text-lg mb-6 tracking-wider uppercase text-background/50">
               Услуги
             </h4>
@@ -78,6 +81,25 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-6 tracking-wider uppercase text-background/50">
+              Юридическая информация
+            </h4>
+            <ul className="md:space-y-3 space-y-2 text-background/80">
+              
+                <li>
+                    {legalInfo.companyName}
+                </li>
+                <li>
+                    {legalInfo.inn}
+                </li>
+                <li>
+                    {legalInfo.ogrn}
+                </li>              
+            </ul>
+          </div>
+          
         </div>
 
         <Separator className="bg-background/10 mb-8" />
@@ -88,12 +110,20 @@ export function Footer() {
            Все права защищены.
           </p>
           {/* <div className="flex gap-6"> */}
-            <a href="#" className="hover:text-background transition-colors">
+            <Link 
+              href="/privacy" 
+              className="hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
               Политика конфиденциальности
-            </a>
-            <a href="#" className="hover:text-background transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-background transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
               Пользовательское соглашение
-            </a>
+            </Link>
           {/* </div> */}
         </div>
       </div>

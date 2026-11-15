@@ -21,7 +21,7 @@ export function HomePage() {
         <Testimonials />
         <Cta />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
